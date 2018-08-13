@@ -1,0 +1,18 @@
+<?php
+
+namespace app\api\model;
+
+
+class Image extends BaseModel
+{
+    protected $visible = ['url'];
+
+    public function themes(){
+        return $this->belongsTo('theme','theme_id','id');
+    }
+    public function getUrlAttr($value,$data){
+        return $this->prefixImgUrl($value,$data);
+    }
+
+
+}
